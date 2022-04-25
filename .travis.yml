@@ -1,0 +1,17 @@
+language: java
+jdk:
+- oraclejdk8
+
+addons:
+  sonarcloud:
+    organization: "pjvilloud-github" # the key of the org you chose at step #3
+
+  srcclr: true
+script:
+   # other script steps might be done before running the actual analysis
+   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install; fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar; fi'
+  #- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=https://sonarcloud.io
+
+notifications:
+    slack: ipijava350:IxZAXUv826zwF91MLqXr94mQ
