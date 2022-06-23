@@ -62,23 +62,23 @@ public class Employe {
         return getNbRtt(LocalDate.now());
     }
 
-    public Integer getNbRtt(LocalDate d){
-        int i1 = d.isLeapYear() ? 365 : 366;
-        int joursNonTravailles = 104;
-        switch (LocalDate.of(d.getYear(),1,1).getDayOfWeek()){
-            case THURSDAY: if(d.isLeapYear()) joursNonTravailles =  joursNonTravailles + 1; break;
+    public Integer getNbRtt(LocalDate annee){
+        int nbJoursAnnee = annee.isLeapYear() ? 365 : 366;
+        int joursWeekEnd = 104;
+        switch (LocalDate.of(annee.getYear(),1,1).getDayOfWeek()){
+            case THURSDAY: if(annee.isLeapYear()) joursWeekEnd =  joursWeekEnd + 1; break;
             case FRIDAY:
-                if(d.isLeapYear()) joursNonTravailles =  joursNonTravailles + 2;
-                else joursNonTravailles =  joursNonTravailles + 1;
+                if(annee.isLeapYear()) joursWeekEnd =  joursWeekEnd + 2;
+                else joursWeekEnd =  joursWeekEnd + 1;
                 break;
-            case SATURDAY:joursNonTravailles = joursNonTravailles + 1;
+            case SATURDAY:joursWeekEnd = joursWeekEnd + 1;
                 break;
             default:
                 break;
         }
-        int monInt = (int) Entreprise.joursFeries(d).stream().filter(localDate ->
+        int joursFeriesHorsWeekend = (int) Entreprise.joursFeries(annee).stream().filter(localDate ->
                 localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();
-        return (int) Math.ceil((i1 - Entreprise.NB_JOURS_MAX_FORFAIT - joursNonTravailles - Entreprise.NB_CONGES_BASE - monInt) * tempsPartiel);
+        return (int) Math.ceil((nbJoursAnnee - Entreprise.NB_JOURS_MAX_FORFAIT - joursWeekEnd - Entreprise.NB_CONGES_BASE - joursFeriesHorsWeekend) * tempsPartiel);
     }
 
     /**
@@ -117,9 +117,9 @@ public class Employe {
     }
 
     //Augmenter salaire
-    public void augmenterSalaire(double pourcentage){
-        if(pourcentage != 0) {
-            salaire *= 1 + pourcentage / 100;
+    public void augmenterSalaire(Double pourcentage) {
+        if(pourcentage != null && pourcentage > 0) {
+            Math.ceil(salaire *= 1 + pourcentage / 100);
         }
     }
 

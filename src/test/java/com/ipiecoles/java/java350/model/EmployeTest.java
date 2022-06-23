@@ -62,10 +62,53 @@ public class EmployeTest {
     public void testAugmenterSalaireEmploye() {
         //Given
         Employe e = new Employe();
-        e.setSalaire(2000);
-        e.augmenterSalaire();
+        e.setSalaire(2137d);
+
         //When
+        e.augmenterSalaire(25.6);
 
         //Then
+        Assertions.assertThat(e.getSalaire() == 2685);
+    }
+
+    @Test
+    public void testAugmenterSalaireNegatifEmploye() {
+        //Given
+        Employe e = new Employe();
+        e.setSalaire(2000d);
+
+        //When
+        e.augmenterSalaire(-25d);
+
+        //Then
+        Assertions.assertThat(e.getSalaire() == 2000);
+    }
+
+    @Test
+    public void testAugmenterSalaireZeroEmploye() {
+        //Given
+        Employe e = new Employe();
+        e.setSalaire(2000d);
+
+        //When
+        e.augmenterSalaire(0d);
+
+        //Then
+        Assertions.assertThat(e.getSalaire() == 2000);
+    }
+
+    @Test
+    public void testAugmenterSalaireNullEmploye() {
+        //Given
+        Employe e = new Employe();
+        e.setSalaire(2000d);
+
+        Double d = null;
+
+        //When
+        e.augmenterSalaire(d);
+
+        //Then
+        Assertions.assertThat(e.getSalaire() == 2000);
     }
 }
