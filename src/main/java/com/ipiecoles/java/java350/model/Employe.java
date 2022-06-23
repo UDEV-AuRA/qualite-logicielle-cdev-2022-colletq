@@ -119,7 +119,8 @@ public class Employe {
     //Augmenter salaire
     public void augmenterSalaire(Double pourcentage) {
         if(pourcentage != null && pourcentage > 0) {
-            Math.ceil(salaire *= 1 + pourcentage / 100);
+            salaire = salaire * 1+pourcentage/100;
+            Math.ceil(salaire);
         }
     }
 
