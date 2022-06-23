@@ -48,7 +48,10 @@ public class Employe {
      * @return
      */
     public Integer getNombreAnneeAnciennete() {
-        return LocalDate.now().getYear() - dateEmbauche.getYear();
+        if(this.dateEmbauche != null && dateEmbauche.isBefore(LocalDate.now())) {
+            return LocalDate.now().getYear() - dateEmbauche.getYear();
+        }
+        return 0;
     }
 
     public Integer getNbConges() {
@@ -60,21 +63,22 @@ public class Employe {
     }
 
     public Integer getNbRtt(LocalDate d){
-        int i1 = d.isLeapYear() ? 365 : 366;int var = 104;
+        int i1 = d.isLeapYear() ? 365 : 366;
+        int joursNonTravailles = 104;
         switch (LocalDate.of(d.getYear(),1,1).getDayOfWeek()){
-            case THURSDAY: if(d.isLeapYear()) var =  var + 1; break;
+            case THURSDAY: if(d.isLeapYear()) joursNonTravailles =  joursNonTravailles + 1; break;
             case FRIDAY:
-                if(d.isLeapYear()) var =  var + 2;
-                else var =  var + 1;
+                if(d.isLeapYear()) joursNonTravailles =  joursNonTravailles + 2;
+                else joursNonTravailles =  joursNonTravailles + 1;
                 break;
-            case SATURDAY:var = var + 1;
+            case SATURDAY:joursNonTravailles = joursNonTravailles + 1;
                 break;
             default:
                 break;
         }
         int monInt = (int) Entreprise.joursFeries(d).stream().filter(localDate ->
                 localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();
-        return (int) Math.ceil((i1 - Entreprise.NB_JOURS_MAX_FORFAIT - var - Entreprise.NB_CONGES_BASE - monInt) * tempsPartiel);
+        return (int) Math.ceil((i1 - Entreprise.NB_JOURS_MAX_FORFAIT - joursNonTravailles - Entreprise.NB_CONGES_BASE - monInt) * tempsPartiel);
     }
 
     /**
@@ -113,7 +117,11 @@ public class Employe {
     }
 
     //Augmenter salaire
-    //public void augmenterSalaire(double pourcentage){}
+    public void augmenterSalaire(double pourcentage){
+        if(pourcentage != 0) {
+            salaire *= 1 + pourcentage / 100;
+        }
+    }
 
     public Long getId() {
         return id;

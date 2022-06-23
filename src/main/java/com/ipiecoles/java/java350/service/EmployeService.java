@@ -75,9 +75,9 @@ public class EmployeService {
 
         //Création et sauvegarde en BDD de l'employé.
         Employe employe = new Employe(nom, prenom, matricule, LocalDate.now(), salaire, Entreprise.PERFORMANCE_BASE, tempsPartiel);
-        logger.info("Employé avant sauvegarde : {}", employe.toString());
+        logger.info("Employé avant sauvegarde : {}", employe);
         employeRepository.save(employe);
-        logger.info("Employé après sauvegarde : {}", employe.toString());
+        logger.info("Employé après sauvegarde : {}", employe);
     }
 
 
@@ -116,6 +116,7 @@ public class EmployeService {
             throw new EmployeException("Le matricule " + matricule + " n'existe pas !");
         }
 
+        //Ici on passe par une fonction pour réduire la complexité cognitive du code
         Integer performance = calculPerformanceEmploye(employe, caTraite, objectifCa);
 
         //Si autre cas, on reste à la performance de base.
