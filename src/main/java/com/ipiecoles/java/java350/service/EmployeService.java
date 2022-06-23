@@ -116,6 +116,22 @@ public class EmployeService {
             throw new EmployeException("Le matricule " + matricule + " n'existe pas !");
         }
 
+        Integer performance = calculPerformanceEmploye(employe, caTraite, objectifCa);
+
+        //Si autre cas, on reste à la performance de base.
+
+        //Calcul de la performance moyenne
+        Double performanceMoyenne = employeRepository.avgPerformanceWhereMatriculeStartsWith("C");
+        if(performanceMoyenne != null && performance > performanceMoyenne){
+            performance++;
+        }
+
+        //Affectation et sauvegarde
+        employe.setPerformance(performance);
+        employeRepository.save(employe);
+    }
+
+    int calculPerformanceEmploye(Employe employe, float caTraite, float objectifCa) {
         Integer performance = Entreprise.PERFORMANCE_BASE;
         //Cas 2
         if(caTraite >= objectifCa*0.8 && caTraite < objectifCa*0.95){
@@ -133,16 +149,7 @@ public class EmployeService {
         else if(caTraite > objectifCa*1.2){
             performance = employe.getPerformance() + 4;
         }
-        //Si autre cas, on reste à la performance de base.
 
-        //Calcul de la performance moyenne
-        Double performanceMoyenne = employeRepository.avgPerformanceWhereMatriculeStartsWith("C");
-        if(performanceMoyenne != null && performance > performanceMoyenne){
-            performance++;
-        }
-
-        //Affectation et sauvegarde
-        employe.setPerformance(performance);
-        employeRepository.save(employe);
+        return performance;
     }
 }
