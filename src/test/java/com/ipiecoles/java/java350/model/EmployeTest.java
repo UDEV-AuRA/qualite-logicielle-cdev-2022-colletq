@@ -2,10 +2,16 @@ package com.ipiecoles.java.java350.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 public class EmployeTest {
+
+    //----------Tests getNombreAnneeAnciennete-----------
+
     @Test
     public void testNbAnneeAncienneteNow(){
         //Given
@@ -57,6 +63,8 @@ public class EmployeTest {
         //Then
         Assertions.assertThat(nbAnnees).isEqualTo(0);
     }
+
+    //---------Tests augmenterSalaire---------
 
     @Test
     public void testAugmenterSalaireEmploye() {
@@ -110,5 +118,45 @@ public class EmployeTest {
 
         //Then
         Assertions.assertThat(e.getSalaire() == 2000);
+    }
+
+    //---------Tests getNbRTT--------
+
+    @ParameterizedTest(name = "La fonction donne le bon nombre de jours fériés pour l'année {0}: {1} jours")
+    @CsvSource({
+            "2019,10",
+            "2021,7",
+            "2022,7",
+            "2032,7"
+    })
+    public void testGetNbRtt(int annee, int joursFeries) {
+        //Given
+        Employe e = new Employe();
+        LocalDate anneeDate = LocalDate.of(annee, Month.JANUARY, 1);
+
+        //When
+        e.setTempsPartiel(1d);
+
+        //Then
+        Assertions.assertThat(e.getNbRtt(anneeDate) == joursFeries);
+    }
+
+    @ParameterizedTest(name = "La fonction donne le bon nombre de jours fériés")
+    @CsvSource({
+            "2019,8",
+            "2021,6",
+            "2022,6",
+            "2032,6"
+    })
+    public void testGetNbRttTempsPartiel(int annee, int joursFeries) {
+        //Given
+        Employe e = new Employe();
+        LocalDate anneeDate = LocalDate.of(annee, Month.JANUARY, 1);
+
+        //When
+        e.setTempsPartiel(0.8d);
+
+        //Then
+        Assertions.assertThat(e.getNbRtt(anneeDate) == joursFeries);
     }
 }

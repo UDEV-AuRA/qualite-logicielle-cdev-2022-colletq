@@ -116,8 +116,8 @@ public class EmployeService {
             throw new EmployeException("Le matricule " + matricule + " n'existe pas !");
         }
 
-        //Ici on passe par une fonction pour réduire la complexité cognitive du code
-        Integer performance = calculPerformanceEmploye(employe, caTraite, objectifCa);
+        //Ici on passe par une fonction pour réduire la complexité cognitive du code (sonarcloud)
+        Integer performance = calculPerformanceCommercialIfElses(employe, caTraite, objectifCa);
 
         //Si autre cas, on reste à la performance de base.
 
@@ -132,7 +132,7 @@ public class EmployeService {
         employeRepository.save(employe);
     }
 
-    int calculPerformanceEmploye(Employe employe, float caTraite, float objectifCa) {
+    private int calculPerformanceCommercialIfElses(Employe employe, float caTraite, float objectifCa) {
         Integer performance = Entreprise.PERFORMANCE_BASE;
         //Cas 2
         if(caTraite >= objectifCa*0.8 && caTraite < objectifCa*0.95){

@@ -1,0 +1,16 @@
+06-07-2022 23:01:58.889 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+06-07-2022 23:01:59.258 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+06-07-2022 23:19:47.058 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+06-07-2022 23:19:47.583 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+07-07-2022 21:05:33.248 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+07-07-2022 21:05:33.697 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+07-07-2022 21:09:39.111 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+07-07-2022 21:09:39.618 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+07-07-2022 21:11:03.792 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+07-07-2022 21:11:04.089 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+07-07-2022 21:24:36.292 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+07-07-2022 21:24:36.644 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+07-07-2022 21:26:31.844 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+07-07-2022 21:26:32.432 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+07-07-2022 21:28:31.194 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+07-07-2022 21:28:31.679 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
