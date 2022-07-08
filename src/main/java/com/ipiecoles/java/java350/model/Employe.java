@@ -82,6 +82,7 @@ public class Employe {
         //On récupère le nombre de jours dans l'année
         int nbJoursAnnee = annee.isLeapYear() ? 365 : 366;
 
+
         //Portion de code calculant le nombre de jours de weekend dans l'année
         //Début de l'année
         LocalDate startDay = LocalDate.of(annee.getYear(), Month.JANUARY, 1);

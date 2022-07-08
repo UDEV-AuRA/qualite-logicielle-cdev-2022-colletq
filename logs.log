@@ -300,3 +300,62 @@
 07-07-2022 22:17:29.845 [main] DEBUG c.i.j.j.r.EmployeRepositoryTest.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
 07-07-2022 22:17:29.847 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
 07-07-2022 22:17:35.848 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStarted - Started EmployeRepositoryTest in 6.501 seconds (JVM running for 9.55)
+08-07-2022 12:50:20.380 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStarting - Starting EmployeRepositoryTest on ITEM-S68658 with PID 17248 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 12:50:20.382 [main] DEBUG c.i.j.j.r.EmployeRepositoryTest.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 12:50:20.384 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 12:50:29.466 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStarted - Started EmployeRepositoryTest in 9.791 seconds (JVM running for 14.583)
+08-07-2022 12:52:05.411 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStarting - Starting EmployeRepositoryTest on ITEM-S68658 with PID 3436 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 12:52:05.414 [main] DEBUG c.i.j.j.r.EmployeRepositoryTest.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 12:52:05.417 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 12:52:13.641 [main] INFO  c.i.j.j.r.EmployeRepositoryTest.logStarted - Started EmployeRepositoryTest in 9.239 seconds (JVM running for 13.242)
+08-07-2022 12:52:35.591 [main] INFO  c.i.j.j.s.EmployeServiceIntregreTest.logStarting - Starting EmployeServiceIntregreTest on ITEM-S68658 with PID 3244 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 12:52:35.592 [main] DEBUG c.i.j.j.s.EmployeServiceIntregreTest.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 12:52:35.594 [main] INFO  c.i.j.j.s.EmployeServiceIntregreTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 12:52:42.679 [main] INFO  c.i.j.j.s.EmployeServiceIntregreTest.logStarted - Started EmployeServiceIntregreTest in 7.952 seconds (JVM running for 14.318)
+08-07-2022 12:53:17.998 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+08-07-2022 12:53:18.018 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 12345
+08-07-2022 12:53:18.020 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C12346
+08-07-2022 12:53:18.027 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 2129.71
+08-07-2022 12:53:18.030 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C12346', dateEmbauche=2022-07-08, salaire=2129.71, performance=1, tempsPartiel=1.0}
+08-07-2022 12:53:18.086 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C12346', dateEmbauche=2022-07-08, salaire=2129.71, performance=1, tempsPartiel=1.0}
+08-07-2022 12:53:18.309 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 0.8
+08-07-2022 12:53:18.310 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : null
+08-07-2022 12:53:18.311 [main] WARN  c.i.j.java350.service.EmployeService.embaucheEmploye - Aucun employé trouvé, utilisation du matricule initial
+08-07-2022 12:53:18.311 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C00001
+08-07-2022 12:53:18.312 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 1703.77
+08-07-2022 12:53:18.317 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-07-08, salaire=1703.77, performance=1, tempsPartiel=0.8}
+08-07-2022 12:53:18.318 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-07-08, salaire=1703.77, performance=1, tempsPartiel=0.8}
+08-07-2022 12:53:18.354 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+08-07-2022 12:53:18.355 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 55555
+08-07-2022 12:53:18.356 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C55556
+08-07-2022 12:53:18.357 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+08-07-2022 12:53:18.388 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+08-07-2022 12:53:18.389 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : null
+08-07-2022 12:53:18.390 [main] WARN  c.i.j.java350.service.EmployeService.embaucheEmploye - Aucun employé trouvé, utilisation du matricule initial
+08-07-2022 12:53:18.394 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C00001
+08-07-2022 12:53:18.395 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 2129.71
+08-07-2022 12:53:18.396 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-07-08, salaire=2129.71, performance=1, tempsPartiel=1.0}
+08-07-2022 12:53:18.397 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-07-08, salaire=2129.71, performance=1, tempsPartiel=1.0}
+08-07-2022 12:53:19.136 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+08-07-2022 12:53:19.144 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 99999
+08-07-2022 12:53:19.147 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+08-07-2022 13:00:18.964 [main] INFO  c.i.java.java350.Java350Application.logStarting - Starting Java350Application on ITEM-S68658 with PID 15588 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 13:00:18.969 [main] DEBUG c.i.java.java350.Java350Application.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 13:00:18.970 [main] INFO  c.i.java.java350.Java350Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 13:00:22.771 [main] INFO  c.i.java.java350.Java350Application.logStarted - Started Java350Application in 4.235 seconds (JVM running for 9.808)
+08-07-2022 13:05:29.009 [main] INFO  c.i.java.java350.Java350Application.logStarting - Starting Java350Application on ITEM-S68658 with PID 11528 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 13:05:29.015 [main] DEBUG c.i.java.java350.Java350Application.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 13:05:29.016 [main] INFO  c.i.java.java350.Java350Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 13:05:33.146 [main] INFO  c.i.java.java350.Java350Application.logStarted - Started Java350Application in 4.877 seconds (JVM running for 7.5)
+08-07-2022 13:05:49.040 [main] INFO  c.i.java.java350.Java350Application.logStarting - Starting Java350Application on ITEM-S68658 with PID 17864 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 13:05:49.050 [main] DEBUG c.i.java.java350.Java350Application.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 13:05:49.052 [main] INFO  c.i.java.java350.Java350Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 13:05:52.841 [main] INFO  c.i.java.java350.Java350Application.logStarted - Started Java350Application in 4.394 seconds (JVM running for 6.5)
+08-07-2022 13:13:56.393 [main] INFO  c.i.java.java350.Java350Application.logStarting - Starting Java350Application on ITEM-S68658 with PID 15328 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 13:13:56.398 [main] DEBUG c.i.java.java350.Java350Application.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 13:13:56.399 [main] INFO  c.i.java.java350.Java350Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 13:13:59.965 [main] INFO  c.i.java.java350.Java350Application.logStarted - Started Java350Application in 4.077 seconds (JVM running for 6.656)
+08-07-2022 13:14:23.560 [main] INFO  c.i.java.java350.Java350Application.logStarting - Starting Java350Application on ITEM-S68658 with PID 14568 (started by qcollet in C:\Users\qcollet\Documents\cours\qualité_logicielle)
+08-07-2022 13:14:23.572 [main] DEBUG c.i.java.java350.Java350Application.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-07-2022 13:14:23.587 [main] INFO  c.i.java.java350.Java350Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+08-07-2022 13:14:26.978 [main] INFO  c.i.java.java350.Java350Application.logStarted - Started Java350Application in 4.157 seconds (JVM running for 6.431)

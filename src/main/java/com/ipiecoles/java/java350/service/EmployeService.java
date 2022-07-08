@@ -102,17 +102,21 @@ public class EmployeService {
     public void calculPerformanceCommercial(String matricule, Long caTraite, Long objectifCa) throws EmployeException {
         //Vérification des paramètres d'entrée
         if(caTraite == null || caTraite < 0){
+            logger.error("Le caTraite ne peut pas être négatif ou null");
             throw new EmployeException("Le chiffre d'affaire traité ne peut être négatif ou null !");
         }
         if(objectifCa == null || objectifCa < 0){
+            logger.error("L'objectifCa ne peut pas être négatif ou null");
             throw new EmployeException("L'objectif de chiffre d'affaire ne peut être négatif ou null !");
         }
         if(matricule == null || !matricule.startsWith("C")){
+            logger.error("Le matricule ne peut pas être null et doit commencer par un C");
             throw new EmployeException("Le matricule ne peut être null et doit commencer par un C !");
         }
         //Recherche de l'employé dans la base
         Employe employe = employeRepository.findByMatricule(matricule);
         if(employe == null){
+            logger.error("Le matricule {} n'existe pas", matricule);
             throw new EmployeException("Le matricule " + matricule + " n'existe pas !");
         }
 
@@ -124,6 +128,7 @@ public class EmployeService {
         //Calcul de la performance moyenne
         Double performanceMoyenne = employeRepository.avgPerformanceWhereMatriculeStartsWith("C");
         if(performanceMoyenne != null && performance > performanceMoyenne){
+            logger.info("L'employé a une performance supérieur à la moyenne donc sa performance passe de {} à {}", performance, performance++);
             performance++;
         }
 
@@ -151,6 +156,7 @@ public class EmployeService {
             performance = employe.getPerformance() + 4;
         }
 
+        logger.info("La performance de l'employé est passe de {} à {}", employe.getPerformance(), performance);
         return performance;
     }
 }
