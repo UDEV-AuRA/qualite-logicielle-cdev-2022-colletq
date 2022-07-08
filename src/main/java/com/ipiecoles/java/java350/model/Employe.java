@@ -6,7 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.List;
 import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Entity
 public class Employe {
@@ -48,7 +52,10 @@ public class Employe {
      * @return
      */
     public Integer getNombreAnneeAnciennete() {
-        return LocalDate.now().getYear() - dateEmbauche.getYear();
+        if(this.dateEmbauche != null && dateEmbauche.isBefore(LocalDate.now())) {
+            return LocalDate.now().getYear() - dateEmbauche.getYear();
+        }
+        return 0;
     }
 
     public Integer getNbConges() {
@@ -59,22 +66,48 @@ public class Employe {
         return getNbRtt(LocalDate.now());
     }
 
-    public Integer getNbRtt(LocalDate d){
-        int i1 = d.isLeapYear() ? 365 : 366;int var = 104;
-        switch (LocalDate.of(d.getYear(),1,1).getDayOfWeek()){
-            case THURSDAY: if(d.isLeapYear()) var =  var + 1; break;
-            case FRIDAY:
-                if(d.isLeapYear()) var =  var + 2;
-                else var =  var + 1;
-                break;
-            case SATURDAY:var = var + 1;
-                break;
-            default:
-                break;
-        }
-        int monInt = (int) Entreprise.joursFeries(d).stream().filter(localDate ->
+    /**
+     *<h1>getNbRtt</h1>
+     * Cette fonction permet de déterminer le nombre de RTT d'une année X avec le calcul suivant :
+     * (Nombre de jours dans l'année - Nombre de jours travaillés dans l'année en plein temps -
+     * Nombre de samedi et dimanche dans l'année - Nombre de jours fériés ne tombant pas le week-end - Nombre de congés payés)*
+     * taux de temps partiel (ex : 0.8 pour 80%)
+     *
+     *
+     * @param annee integer de l'année pour laquelle on veut trouver le nombre de RTT
+     *
+     * @return nombre de RTT d'une année arrondi à l'entier supérieur
+     */
+    public Integer getNbRtt(LocalDate annee){
+        //On récupère le nombre de jours dans l'année
+        int nbJoursAnnee = annee.isLeapYear() ? 365 : 366;
+
+
+        //Portion de code calculant le nombre de jours de weekend dans l'année
+        //Début de l'année
+        LocalDate startDay = LocalDate.of(annee.getYear(), Month.JANUARY, 1);
+
+        //Fin de l'année, il faut mettre le 1 janvier de l'année d'après
+        // pour englober tout l'année concernée
+        LocalDate endDay = LocalDate.of(annee.getYear()+1, Month.JANUARY, 1);
+
+        //Predicate qui va servir pour filtrer les jours
+        Predicate<LocalDate> isWeekDay = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
+
+        //On filtre les jours de weekends dans une liste avec le predicate isWeekDay
+        List<LocalDate> listJoursWeekend = startDay.datesUntil(endDay)
+                .filter(isWeekDay.negate())
+                .collect(Collectors.toList());
+
+        //Récupération du nombre de jours en comptant le nombre d'éléments dans la liste
+        int joursWeekEnd = (int) listJoursWeekend.stream().count();
+
+        //calcul des jours fériés hors weekend :
+        //le tout arrondi à l'entier supérieur
+        int joursFeriesHorsWeekend = (int) Entreprise.joursFeries(annee).stream().filter(localDate ->
                 localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();
-        return (int) Math.ceil((i1 - Entreprise.NB_JOURS_MAX_FORFAIT - var - Entreprise.NB_CONGES_BASE - monInt) * tempsPartiel);
+
+        return (int) Math.ceil((nbJoursAnnee - Entreprise.NB_JOURS_MAX_FORFAIT - joursWeekEnd - Entreprise.NB_CONGES_BASE - joursFeriesHorsWeekend) * tempsPartiel);
     }
 
     /**
@@ -113,7 +146,12 @@ public class Employe {
     }
 
     //Augmenter salaire
-    //public void augmenterSalaire(double pourcentage){}
+    public void augmenterSalaire(Double pourcentage) {
+        if(pourcentage != null && pourcentage > 0) {
+            salaire = salaire * 1+pourcentage/100;
+            Math.ceil(salaire);
+        }
+    }
 
     public Long getId() {
         return id;
